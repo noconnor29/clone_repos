@@ -1,5 +1,9 @@
 #!/bin/bash
 read -p "GitHub Username: " GITHUB_USER
+if [ "$GITHUB_USER" = "" ]; then
+	echo "Username required. Exiting..."
+	exit
+fi
 read -sp "GitHub API Token: " API_TOKEN
 read -p "Enter clone path. Default: PWD: " DIR
 DIR="${DIR:=.}"
