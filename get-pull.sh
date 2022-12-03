@@ -1,6 +1,7 @@
 #!/bin/bash
 # do a get request to https://api.github.com/users/noconnor29/repos
 # will also need a personal API token in bash_profile?
+# use field ssh_url": "git@github.com:noconnor29/ansible-role-harden.git"
 repos=( $(curl -s https://api.github.com/users/noconnor29/repos | jq '.[]|.html_url') )
 
 #repos=(
@@ -22,5 +23,5 @@ repos=( $(curl -s https://api.github.com/users/noconnor29/repos | jq '.[]|.html_
 #declare -p repos
 for line in "${repos[@]}"
 do 
-	git clone $line
+	git clone $line.git
 done
